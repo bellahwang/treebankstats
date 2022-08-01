@@ -3,8 +3,6 @@ In the table below, I break down each of the tags used in the 'allauthors.csv' f
 
 My dataset consisted of all Pedalion trees (EXCLUDING 'example-sentences.xml' and some portions of 'chilia-sentences.xml', and INCLUDING 'papyri.xml'), all gAGDT trees, all Gorman trees, and some Proiel trees (INCLUDING 'greek-nt.xml', 'chron.xml', and 'hdt.xml'). 
 
-I 
-
 Although 'papyri.xml' consists of scraps of papyri manuscripts, many of which have no traceable authors, I included it in the final csv file. As a result, all words from the 'papyri.xml' file do not contain author related information. 
 
 To avoid repeated data, I have excluded Book 1 of Herodotus in 'hdt.xml', because Vanessa Gorman already has annotated trees for Book 1 of Herodotus. However, echoing Dr. Greg Crane, it would be an interesting future project to compare and contrast similarities and differences in the Proiel analysis and Gorman analysis of Book 1 of Herodotus. 
@@ -18,7 +16,6 @@ I've standardized differences across the Pedalion trees, gAGDT trees, Gorman tre
     * e.g. 
 * adding additional standardized author and work information
     * e.g. including information from [this dict](#author-dict) to each word
-* 
 
 Some things I have NOT standardized include:
 * Proiel POS (part of speech) tagging
@@ -36,32 +33,32 @@ Some things I have NOT standardized include:
 | Poetry/Prose 				| Labels author's work as poetry or prose |
 | Genre  	  				| Labels author's work as specific genre |
 | sentID  	  				| Unique ID for each sentence in work |
-| docID  	  				| Unique ID for |
+| docID  	  				| Identifier | Different uses across treebanks
 | subdoc  	  				| Identifier | Different uses across treebanks
 | AuthorName  				| 'Author' tag listing name of author | only present in Pedalion trees |
 | wordID  	  				| Unique ID for each word relative to each sentence | Not unique across all sentences, except for in Pedalion 
-| head  	  				| Text        |
-| form  	  				| Text        |
-| lemma  	  				| Text        |
-| relation    				| Text        |
-| ref  	      				| Text        |
-| presentation_after  	  	| Text        |
-| insertionID  	  			| Text        |
-| artificial  	  			| Text        |
-| gloss  	  				| Text        |
-| sem  	  					| Text        |
-| postag  	  				|  | separated into different subcategories to make searching more smooth (Listed below) |
-| pos  	  					| part of speech |
-| person  	  				| subcategory of postag: person | 1st, 2nd, or 3rd
-| number  	  				| subcategory of postag: number | singular, dual, plural
-| tense  	  				| subcategory of postag: tense | 
-| mood  	  				| subcategory of postag: mood  |
-| voice  	  				| subcategory of postag: voice |
-| gender  	  				| subcategory of postag: gender |
-| case  	  				| subcategory of postag: case |
-| degree  	 				| subcategory of postag: degree |
-| strength  	  			| subcategory of postag: strength |
-| inflection  	  			| subcategory of postag: inflection |
+| head  	  				| Links words together to create treebanked sentences, corresponds with wordID |
+| form  	  				| Form of word used in text |
+| lemma  	  				| Lemma of the word form used in text |
+| relation    				| describes function of word in sentence |
+| ref  	      				| lists identifying information for text and place in text | unique to Pedalion trees
+| presentation_after  	  	| includes punctuation and other presentations that would follow the word in text | unique to Proiel trees
+| insertionID  	  			| used for ellipses |
+| artificial  	  			| used for ellipses |
+| gloss  	  				| gives a quick gloss of the word being used in context | unique to Pedalion trees
+| sem  	  					| gives further context in which word is being used | unique to Pedalion trees
+| postag  	  				| 'part of speech' tags | separated into different subcategories to make searching more smooth (Listed below) |
+| pos  	  					| part of speech | see [POS dict](#partofspeech-dict)
+| person  	  				| subcategory of postag: person |  see [person dict](#person-dict)
+| number  	  				| subcategory of postag: number |  see [number dict](#number-dict)
+| tense  	  				| subcategory of postag: tense | see [tense dict](#tense-dict)
+| mood  	  				| subcategory of postag: mood  | see [mood dict](#mood-dict)
+| voice  	  				| subcategory of postag: voice | see [voice dict](#voice-dict)
+| gender  	  				| subcategory of postag: gender | see [gender dict](#gender-dict)
+| case  	  				| subcategory of postag: case | see [case dict](#case-dict)
+| degree  	 				| subcategory of postag: degree | see [degree dict](#degree-dict)
+| strength  	  			| subcategory of postag: strength | see [strength dict](#strength-dict)
+| inflection  	  			| subcategory of postag: inflection | see [inflection dict](#inflection-dict)
 
 # Author Dict
 
@@ -121,25 +118,86 @@ Created by Dr. Greg Crane in 'Treebank.ipynb'
 | tlg3143 | Georgius Sphrantzes | 16 | 1480 | 1550 | prose | history
 
 # POS Tag Dicts
+
+## partOfSpeech Dict 
+| Identifier (ID) | Meaning | Note |
+| ----------- | ----------- | ----------- |
+| n | noun |
+| v | verb |
+| t | participle |
+| a | adjective |
+| d | adverb |
+| l | article |
+| g | particle |
+| c | conjunction |
+| r | preposition |
+| p | pronoun |
+| m | numeral |
+| i | interjection |
+| e | exclamation |
+| u | punctuation |
+| x | irregular |
+| - | null |
+| A- | adjective | unique to Proiel
+| Df | adverb | unique to Proiel
+| S- | article | unique to Proiel
+| Ma | cardinal numeral | unique to Proiel
+| Nb | common noun | unique to Proiel
+| C- | conjunction | unique to Proiel
+| Pd | demonstrative pronoun | unique to Proiel
+| F- | foreign word | unique to Proiel
+| Px | indefinite pronoun | unique to Proiel
+| N- | infinitive marker | unique to Proiel
+| I- | interjection | unique to Proiel
+| Du | interrogative adverb | unique to Proiel
+| Pi | interrogative pronoun | unique to Proiel
+| Mo | ordinal numeral | unique to Proiel
+| Pp | personal pronoun | unique to Proiel
+| Pk | personal reflexive pronoun | unique to Proiel
+| Ps | possessive pronoun | unique to Proiel
+| Pt | possessive reflexive pronoun | unique to Proiel
+| R- | preposition | unique to Proiel
+| Ne | proper noun | unique to Proiel
+| Py | quantifier | unique to Proiel
+| Pc | reciprocal pronoun | unique to Proiel
+| Dq | relative adverb | unique to Proiel
+| Pr | relative pronoun | unique to Proiel
+| G- | subjunction | unique to Proiel
+| V- | verb | unique to Proiel
+| X- | unassigned | unique to Proiel
+
+## Person Dict 
+| Identifier (ID) | Meaning |
+| ----------- | ----------- |
+| 1 | first |
+| 2 | second |
+| 3 | third |
+| - | null |
+| x | uncertain |
+
+## Number Dict
+| Identifier (ID) | Meaning |
+| ----------- | ----------- |
+| s | singular |
+| d | dual |
+| p | plural |
+| - | null |
+| x | uncertain |
+
 ## Tense Dict
 | Identifier (ID) | Meaning |
 | ----------- | ----------- |
 | p | present |
-| f | future |
 | i | imperfect |
-| a | aorist |
 | r | perfect |
 | l | pluperfect |
-| t | future perfect|
-
-## Voices Dict
-| Identifier (ID) | Meaning |
-| ----------- | ----------- |
-| a | active | 
-| m | middle |
-| p | passive |
-| i | imperfect |
-| e | middle-passive |
+| t | future perfect |
+| f | future |
+| a | aorist |
+| - | null |
+| s | resultative |
+| u | past |
+| x | uncertain |
 
 ## Mood Dict
 | Identifier (ID) | Meaning |
@@ -147,6 +205,83 @@ Created by Dr. Greg Crane in 'Treebank.ipynb'
 | i | indicative |
 | s | subjunctive |
 | o | optative |
+| n | infinitive |
 | m | imperative |
 | p | participle |
-| n | infinitive |
+| d | gerund |
+| g | gerundive |
+| - | null |
+| u | supine |
+| x | uncertain | mood |
+| y | finiteness unspecified |
+| e | indicative or subjunctive |
+| f | indicative or imperative |
+| h | subjunctive or imperative |
+| t | finite |
+| x | uncertain |
+
+## Voice Dict
+| Identifier (ID) | Meaning |
+| ----------- | ----------- |
+| a | active |
+| p | passive |
+| m | middle |
+| e | middle-passive |
+| - | null |
+| x | uncertain |
+
+## Gender Dict
+| Identifier (ID) | Meaning |
+| ----------- | ----------- |
+| m | masculine |
+| f | feminine |
+| n | neuter |
+| - | null |
+| p | masculine or feminine |
+| o | masculine or neuter |
+| r | feminine or neuter |
+| q | masculine, feminine or neuter |
+| x | uncertain |
+
+## Case Dict
+| Identifier (ID) | Meaning |
+| ----------- | ----------- |
+| n | nominative |
+| g | genitive |
+| d | dative |
+| a | accusative |
+| v | vocative |
+| l | locative |
+| - | null |
+| o | oblique |
+| c | genitive or dative |
+| e | accusative or dative |
+| b | ablative |
+| i | instrumental |
+| z | no case |
+| x | uncertain |
+
+## Degree Dict
+| Identifier (ID) | Meaning |
+| ----------- | ----------- |
+| c | comparative |
+| s | superlative |
+| - | null |
+| p | positive |
+| z | no degree |
+| x | uncertain |
+
+## Strength Dict
+| Identifier (ID) | Meaning |
+| ----------- | ----------- |
+| w | weak |
+| s | strong |
+| t | weak or strong |
+| - | null |
+
+## Inflection Dict
+| Identifier (ID) | Meaning |
+| ----------- | ----------- |
+| n | non-inflecting |
+| i | inflecting |
+| - | null |
