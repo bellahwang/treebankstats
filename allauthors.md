@@ -16,6 +16,7 @@ I've standardized differences across the Pedalion trees, gAGDT trees, Gorman tre
     * e.g. 
 * adding additional standardized author and work information
     * e.g. including information from [this dict](#author-dict) to each word
+* using the 'subdoc' tag for Proiel treebanks instead of the 'citation-part' tag - this is mainly because 'citation-part' is only used in Proiel treebanks, and all other treebanks generally use the 'subdoc' tag to indicate book and position in text.
 
 Some things I have NOT standardized include:
 * Proiel POS (part of speech) tagging
@@ -34,7 +35,7 @@ Some things I have NOT standardized include:
 | Genre  	  				| Labels author's work as specific genre |
 | sentID  	  				| Unique ID for each sentence in work |
 | docID  	  				| Identifier | Different uses across treebanks
-| subdoc  	  				| Identifier | Different uses across treebanks
+| subdoc  	  				| Identifier that generally indicates book and card position in text | Different uses across treebanks
 | AuthorName  				| 'Author' tag listing name of author | only present in Pedalion trees |
 | wordID  	  				| Unique ID for each word relative to each sentence | Not unique across all sentences, except for in Pedalion 
 | head  	  				| Links words together to create treebanked sentences, corresponds with wordID |
@@ -47,6 +48,7 @@ Some things I have NOT standardized include:
 | artificial  	  			| used for ellipses |
 | gloss  	  				| gives a quick gloss of the word being used in context | unique to Pedalion trees
 | sem  	  					| gives further context in which word is being used | unique to Pedalion trees
+| slash | used for coreference resolution | unique to Proiel trees
 | postag  	  				| 'part of speech' tags | separated into different subcategories to make searching more smooth (Listed below) |
 | pos  	  					| part of speech | see [POS dict](#partofspeech-dict)
 | person  	  				| subcategory of postag: person |  see [person dict](#person-dict)
