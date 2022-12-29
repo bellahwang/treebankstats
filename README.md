@@ -1,4 +1,4 @@
-# Bella Hwang, Tufts '22: Experiments in Digital Philology
+# Bella Hwang, Tufts '22: Experiments in Digital Philology 
 ## Undergraduate Thesis
 [Link to my writeup](https://docs.google.com/document/d/1ZBMpnTGfufLNGyo5Wc-rn1SEPhIGLmAdePN7H3rTpZw/edit?usp=sharing)
 ## Requirements
